@@ -1,8 +1,8 @@
-{
-  "version": 2,
-  "buildCommand": "pnpm run build",
-  "outputDirectory": ".next",
-  "routes": [
-    { "src": "/(.*)", "dest": "/" }
-  ]
+{ 
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/"
+        }
+    ],
 }
