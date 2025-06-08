@@ -1,11 +1,20 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Heart, MapPin, Clock, Users, Smartphone, Shield, Download, Apple } from "lucide-react"
+import { Heart, MapPin, Clock, Users, Smartphone, Shield, Download, Apple, Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
 export default function LifelineLanding() {
+  const scrollToDownload = () => {
+    const element = document.getElementById('download');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
@@ -14,7 +23,7 @@ export default function LifelineLanding() {
           <Image src="/logo.svg" alt="Lifeline" width={32} height={32} />
           <span className="text-xl font-bold text-gray-900">Lifeline</span>
         </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
+        <nav className="hidden md:flex ml-auto gap-4 sm:gap-6">
           <Link href="#features" className="text-sm font-medium hover:text-red-600 transition-colors">
             Features
           </Link>
@@ -28,6 +37,14 @@ export default function LifelineLanding() {
             Contact
           </Link>
         </nav>
+        <Button
+          onClick={scrollToDownload}
+          className="ml-auto md:hidden bg-red-600 hover:bg-red-700 text-white"
+          size="sm"
+        >
+          <Download className="mr-1.5 h-4 w-4" />
+          Download
+        </Button>
       </header>
 
       <main className="flex-1">
@@ -38,27 +55,27 @@ export default function LifelineLanding() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <Badge className="bg-red-100 text-red-800 hover:bg-red-200">🩸 Save Lives Today</Badge>
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-gray-900">
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl/none text-gray-900">
                     Connect Blood Donors & Patients in <span className="text-red-600">Just a Few Clicks</span>
                   </h1>
-                  <p className="max-w-[600px] text-gray-600 md:text-xl">
+                  <p className="max-w-[600px] text-gray-600 text-sm sm:text-base md:text-xl">
                     Lifeline helps save lives by instantly connecting people who need blood with suitable donors nearby.
                     Find compatible blood types around you, anytime, anywhere.
                   </p>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Link href="#download">
-                    <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white">
+                <div className="flex flex-col gap-2 sm:flex-row">
+                  <Link href="#download" className="w-full sm:w-auto">
+                    <Button size="lg" className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white">
                       <Heart className="mr-2 h-4 w-4" />I Need Blood
                     </Button>
                   </Link>
-                  <Link href="#download">
-                    <Button size="lg" variant="outline" className="border-red-600 text-red-600 hover:bg-red-50">
+                  <Link href="#download" className="w-full sm:w-auto">
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto border-red-600 text-red-600 hover:bg-red-50">
                       <Users className="mr-2 h-4 w-4" />I Want to Donate
                     </Button>
                   </Link>
                 </div>
-                <div className="flex items-center space-x-4 text-sm text-gray-600">
+                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
                   <div className="flex items-center">
                     <Clock className="mr-1 h-4 w-4" />
                     24/7 Available
@@ -73,14 +90,14 @@ export default function LifelineLanding() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center mt-8 lg:mt-0">
                 <div className="relative">
                   <Image
                     src="/logo.svg"
                     width={300}
                     height={500}
                     alt="Lifeline App Screenshot"
-                    className="rounded-3xl shadow-2xl"
+                    className="rounded-3xl shadow-2xl max-w-full h-auto"
                   />
                   <div className="absolute -top-4 -right-4 w-16 h-16 bg-red-600 rounded-full flex items-center justify-center animate-pulse">
                     <Heart className="w-8 h-8 text-white fill-current" />
@@ -120,14 +137,14 @@ export default function LifelineLanding() {
           <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-900">Why Choose Lifeline?</h2>
-                <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-gray-900">Why Choose Lifeline?</h2>
+                <p className="max-w-[900px] text-gray-600 text-sm sm:text-base md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Our app is designed with one mission: to save lives by making blood donation and requests as simple as
                   possible.
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+            <div className="mx-auto grid max-w-5xl items-start gap-6 py-8 md:py-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
               <Card className="border-0 shadow-lg">
                 <CardContent className="p-6 text-center">
                   <MapPin className="mx-auto h-12 w-12 text-red-600 mb-4" />
@@ -196,13 +213,13 @@ export default function LifelineLanding() {
           <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-900">How Lifeline Works</h2>
-                <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-gray-900">How Lifeline Works</h2>
+                <p className="max-w-[900px] text-gray-600 text-sm sm:text-base md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Saving lives has never been this simple. Here's how our app connects donors and patients in minutes.
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-8 py-12 lg:grid-cols-3 lg:gap-12">
+            <div className="mx-auto grid max-w-5xl items-start gap-8 py-8 md:py-12 grid-cols-1 md:grid-cols-3 lg:gap-12">
               <div className="text-center">
                 <div className="mx-auto w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
                   <span className="text-2xl font-bold text-red-600">1</span>
@@ -291,9 +308,9 @@ export default function LifelineLanding() {
           <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">Download Lifeline Today</h2>
-                <p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Join thousands of life-savers in your community. Available on iOS and Android.
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">Download Lifeline Today</h2>
+                <p className="max-w-[900px] text-gray-300 text-sm sm:text-base md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Join thousands of life-savers in your community. Available on Android.
                 </p>
               </div>
               <div className="flex flex-col gap-4 min-[400px]:flex-row">
@@ -304,7 +321,7 @@ export default function LifelineLanding() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-black hover:bg-white hover:text-red-600"
+                  className="w-full sm:w-auto border-none text-white bg-red-600 hover:bg-gray-100 hover:text-red-600"
                 >
                   <Download className="mr-2 h-5 w-5" />
                   Download for Android
@@ -333,7 +350,7 @@ export default function LifelineLanding() {
           </div>
           <span className="text-sm text-gray-600">© 2024 Lifeline. Saving lives, one connection at a time.</span>
         </div>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+        <nav className="sm:ml-auto flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6 mt-4 sm:mt-0">
           <Link href="#" className="text-xs hover:underline underline-offset-4 text-gray-600">
             Privacy Policy
           </Link>
