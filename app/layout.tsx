@@ -3,8 +3,8 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Lifeline',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  description: 'Lifeline connects blood donors with patients in need, making blood donation quick and accessible through our mobile app.',
+  generator: 'Lifeline',
 }
 
 export default function RootLayout({
