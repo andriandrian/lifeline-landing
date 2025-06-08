@@ -11,9 +11,7 @@ export default function LifelineLanding() {
       {/* Header */}
       <header className="px-4 lg:px-6 h-16 flex items-center border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-50">
         <Link href="/" className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
-            <Heart className="w-5 h-5 text-white fill-current" />
-          </div>
+          <Image src="/logo.svg" alt="Lifeline" width={32} height={32} />
           <span className="text-xl font-bold text-gray-900">Lifeline</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
