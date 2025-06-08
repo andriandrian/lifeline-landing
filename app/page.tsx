@@ -351,7 +351,7 @@ export default function LifelineLanding() {
           <span className="text-sm text-gray-600">© 2024 Lifeline. Saving lives, one connection at a time.</span>
         </div>
         <nav className="sm:ml-auto flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6 mt-4 sm:mt-0">
-          <Link href="#" className="text-xs hover:underline underline-offset-4 text-gray-600">
+          {/* <Link href="#" className="text-xs hover:underline underline-offset-4 text-gray-600">
             Privacy Policy
           </Link>
           <Link href="#" className="text-xs hover:underline underline-offset-4 text-gray-600">
@@ -362,7 +362,7 @@ export default function LifelineLanding() {
           </Link>
           <Link href="#" className="text-xs hover:underline underline-offset-4 text-gray-600">
             Support
-          </Link>
+          </Link> */}
         </nav>
       </footer>
     </div>
