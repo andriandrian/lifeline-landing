@@ -78,7 +78,7 @@ export default function LifelineLanding() {
               <div className="flex items-center justify-center">
                 <div className="relative">
                   <Image
-                    src="/placeholder.svg?height=500&width=300"
+                    src="/logo.svg"
                     width={300}
                     height={500}
                     alt="Lifeline App Screenshot"
